@@ -32,13 +32,13 @@ public class AuthController {
     private final TokenService tokenService;
 
 
-    @Operation( description = "Logar usuários válidos na aplicação",
+    /*@Operation( description = "Logar usuários válidos na aplicação",
         responses = {
             @ApiResponse(responseCode = "200", content = @Content(schema =
             @Schema(implementation = LoginOutput.class))),
             @ApiResponse(responseCode = "404", content = @Content(schema =
             @Schema(implementation = Problema.class)))
-    })
+    })*/
     @PostMapping
     public ResponseEntity<LoginOutput> login(@RequestBody @Valid Login login) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =

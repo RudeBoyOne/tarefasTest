@@ -3,8 +3,10 @@ package com.lucas.tarefas.api.controller;
 import com.lucas.tarefas.api.assembler.UsuarioAssembler;
 import com.lucas.tarefas.api.dto.input.UsuarioInput;
 import com.lucas.tarefas.api.dto.output.UsuarioOutput;
+import com.lucas.tarefas.api.exception.handler.Problema;
 import com.lucas.tarefas.domain.model.Usuario;
 import com.lucas.tarefas.domain.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -28,7 +30,15 @@ public class UsuarioController {
 
     private final UsuarioAssembler usuarioAssembler;
 
-    @ApiResponse(responseCode = "201", content = @Content(schema = @Schema(implementation = UsuarioOutput.class)))
+    @Operation(
+            responses = {
+                @ApiResponse(responseCode = "201", content = @Content(schema = @Schema(implementation =
+                        UsuarioOutput.class))),
+                @ApiResponse(responseCode = "400", content = @Content(schema = @Schema(implementation =
+                        Problema.class))),
+
+            }
+    )
     @PostMapping
     public ResponseEntity<UsuarioOutput> criar(@Valid @RequestBody UsuarioInput usuarioInput) {
         Usuario usuario = usuarioAssembler.toEntity(usuarioInput);
