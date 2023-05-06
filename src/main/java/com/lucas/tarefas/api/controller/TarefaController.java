@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/tarefas")
@@ -28,5 +30,25 @@ public class TarefaController {
         TarefaOutput tarefaOutput = tarefaAssembler.toOutput(tarefaSalva);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(tarefaOutput);
+    }
+
+    @PutMapping("/{idTarefa}")
+    public ResponseEntity<TarefaOutput> atualizar(@PathVariable Long idTarefa,
+                                                  @RequestBody @Valid TarefaInput tarefaInput) {
+
+        Tarefa tarefaSalva = tarefaService.atualizarTarefa(idTarefa, tarefaInput);
+
+        TarefaOutput tarefaOutput = tarefaAssembler.toOutput(tarefaSalva);
+
+        return ResponseEntity.ok(tarefaOutput);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TarefaOutput>> listar() {
+        List<Tarefa> tarefas = tarefaService.listarTarefas();
+
+        List<TarefaOutput> tarefaOutputs = tarefaAssembler.toCollectionOutput(tarefas);
+
+        return ResponseEntity.ok(tarefaOutputs);
     }
 }

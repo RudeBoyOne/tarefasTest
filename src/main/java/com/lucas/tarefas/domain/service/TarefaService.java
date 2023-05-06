@@ -1,5 +1,6 @@
 package com.lucas.tarefas.domain.service;
 
+import com.lucas.tarefas.api.dto.input.TarefaInput;
 import com.lucas.tarefas.domain.exception.RecursoNaoEncontradoException;
 import com.lucas.tarefas.domain.model.Status;
 import com.lucas.tarefas.domain.model.Tarefa;
@@ -30,9 +31,13 @@ public class TarefaService {
     @Transactional(
             rollbackFor = IllegalArgumentException.class,
             rollbackForClassName = "IllegalArgumentException")
-    public Tarefa atualizarTarefa(Long id, Tarefa tarefa) {
-        tarefa.setId(id);
-        return tarefaRepository.saveAndFlush(tarefa);
+    public Tarefa atualizarTarefa(Long id, TarefaInput tarefaInput) {
+        Tarefa tarefaEntity = buscarTarefa(id);
+
+        tarefaEntity.setTitulo(tarefaInput.getTitulo());
+        tarefaEntity.setDescricao(tarefaInput.getDescricao());
+
+        return tarefaRepository.save(tarefaEntity);
     }
 
     public List<Tarefa> listarTarefas() {
