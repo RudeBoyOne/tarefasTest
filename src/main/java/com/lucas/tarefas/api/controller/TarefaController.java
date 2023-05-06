@@ -51,4 +51,16 @@ public class TarefaController {
 
         return ResponseEntity.ok(tarefaOutputs);
     }
+
+    @GetMapping("/{idTarefa}")
+    public ResponseEntity<TarefaOutput> buscarTarefa(@PathVariable Long idTarefa) {
+        Tarefa tarefa = tarefaService.buscarTarefa(idTarefa);
+
+        TarefaOutput tarefaOutput = tarefaAssembler.toOutput(tarefa);
+
+        return ResponseEntity.ok(tarefaOutput);
+    }
+
+
+
 }
