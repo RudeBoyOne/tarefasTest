@@ -2,14 +2,8 @@ package com.lucas.tarefas.api.controller;
 
 import com.lucas.tarefas.api.dto.input.Login;
 import com.lucas.tarefas.api.dto.output.LoginOutput;
-import com.lucas.tarefas.api.exception.handler.Problema;
 import com.lucas.tarefas.domain.model.Usuario;
 import com.lucas.tarefas.domain.service.security.TokenService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

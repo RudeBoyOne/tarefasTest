@@ -61,7 +61,9 @@ public class SecurityConfiguration {
 
                         .requestMatchers(HttpMethod.GET , "/swagger-resources/**")
                             .permitAll()
-        /*"/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs"*/
+
+                        .requestMatchers("*", "/tarefas/**")
+                            .permitAll()
 
                         .anyRequest()
                             .authenticated()
