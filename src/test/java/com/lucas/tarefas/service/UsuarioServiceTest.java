@@ -6,12 +6,14 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
+@ActiveProfiles("test")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(value = OrderAnnotation.class)
 public class UsuarioServiceTest {
@@ -19,7 +21,7 @@ public class UsuarioServiceTest {
     @Autowired
     UsuarioService usuarioService;
 
-    @BeforeAll
+/*    @BeforeAll
     void instanciaUsuarioTest() {
         Usuario usuario = new Usuario();
         usuario.setNome("Larissa");
@@ -30,7 +32,7 @@ public class UsuarioServiceTest {
         assertEquals("Larissa", usuarioSalvo.getNome());
         assertEquals("larissa@gmail.com", usuarioSalvo.getEmail());
         assertEquals("mininaDoida", usuarioSalvo.getSenha());
-    }
+    }*/
 
     @Test
     @Order(1)

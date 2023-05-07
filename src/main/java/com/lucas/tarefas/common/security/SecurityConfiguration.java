@@ -53,16 +53,22 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.PUT, "/usuarios/**")
                             .hasAnyRole("ADMIN")
 
+                        .requestMatchers(HttpMethod.POST, "/tarefas/**")
+                            .hasAnyRole("ADMIN", "USER")
+
+                        .requestMatchers(HttpMethod.GET, "/tarefas/**")
+                            .hasAnyRole("ADMIN", "USER")
+
+                        .requestMatchers(HttpMethod.DELETE, "/tarefas/**")
+                            .hasAnyRole("ADMIN", "USER")
+
+                        .requestMatchers(HttpMethod.PUT, "/tarefas/**")
+                            .hasAnyRole("ADMIN", "USER")
+
                         .requestMatchers(HttpMethod.GET, "/docs/**")
                             .permitAll()
 
                         .requestMatchers(HttpMethod.GET, "/v3/api-docs/**")
-                            .permitAll()
-
-                        .requestMatchers(HttpMethod.GET , "/swagger-resources/**")
-                            .permitAll()
-
-                        .requestMatchers("*", "/tarefas/**")
                             .permitAll()
 
                         .anyRequest()

@@ -1,5 +1,6 @@
 package com.lucas.tarefas.service;
 
+import com.lucas.tarefas.api.dto.input.TarefaInput;
 import com.lucas.tarefas.domain.model.Status;
 import com.lucas.tarefas.domain.model.Tarefa;
 import com.lucas.tarefas.domain.service.TarefaService;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@ActiveProfiles("test")
 @TestMethodOrder(value = OrderAnnotation.class)
 public class TarefaServiceTest {
 
@@ -63,12 +66,10 @@ public class TarefaServiceTest {
     @Test
     @Order(4)
     void atualizaTarefa() {
-        Tarefa tarefa = new Tarefa();
+        TarefaInput tarefa = new TarefaInput();
         tarefa.setTitulo("Entrego meu melhor");
         tarefa.setDescricao("O resultado e consequência de dedicação, o que tiver que ser meu será, está escrito " +
                 "nas estrelas, vai reclamar com Deus!");
-        tarefa.setStatus(Status.CONCLUIDA);
-        tarefa.setDataConclusao(LocalDateTime.now());
 
         Tarefa tarefaAtualizada = tarefaService.atualizarTarefa(1L, tarefa);
 
@@ -76,12 +77,20 @@ public class TarefaServiceTest {
         assertEquals("O resultado e consequência de dedicação, o que tiver que ser meu será, está escrito " +
                         "nas estrelas, vai reclamar com Deus!",
                 tarefaAtualizada.getDescricao());
-        assertEquals(Status.CONCLUIDA, tarefaAtualizada.getStatus());
-        assertNotNull(tarefaAtualizada.getDataConclusao());
+        assertEquals(Status.ABERTA, tarefaAtualizada.getStatus());
+        assertNull(tarefaAtualizada.getDataConclusao());
     }
 
     @Test
     @Order(5)
+    void concluiTarefaTest() {
+        Tarefa tarefaConcluida = tarefaService.concluirTarefa(1L);
+        assertEquals(Status.CONCLUIDA, tarefaConcluida.getStatus());
+        assertNotNull(tarefaConcluida.getDataConclusao());
+    }
+
+    @Test
+    @Order(6)
     void excluirTarefa() {
         tarefaService.excluirTarefa(1L);
     }

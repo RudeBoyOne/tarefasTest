@@ -45,7 +45,7 @@ public class SpringDocConfig {
                 .info(new Info()
                         .title("API RESTful - Tarefas teste")
                         .version("1.0.0")
-                        .description("API RESTful de gerenciamento de tarefas")
+                        .description("API RESTful para gerenciamento de tarefas")
                         .contact(new Contact()
                                 .name("Lucas Ferreira Nogueira")
                                 .url("https://github.com/RudeBoyOne")
@@ -53,7 +53,8 @@ public class SpringDocConfig {
 
                 .tags(List.of(
                         new Tag().name("Auth").description("API de autitenticação de usuários na aplicação"),
-                        new Tag().name("Usuários").description("Gerencia os usuários da aplicação")
+                        new Tag().name("Usuários").description("Gerencia os usuários da aplicação"),
+                        new Tag().name("Tarefas").description("Gerencia as tarefas da aplicação")
                 ))
                 .components(
                         new Components()
@@ -75,8 +76,12 @@ public class SpringDocConfig {
                                                 responses.addApiResponse("404",
                                                 new ApiResponse().$ref(notFoundResponse));
                                     }
-                                    case POST, PUT -> {
+                                    case PUT -> {
                                         responses.addApiResponse("404", new ApiResponse().$ref(notFoundResponse));
+                                        responses.addApiResponse("400",
+                                                new ApiResponse().$ref(badRequestResponse));
+                                    }
+                                    case POST -> {
                                         responses.addApiResponse("400",
                                                 new ApiResponse().$ref(badRequestResponse));
                                     }

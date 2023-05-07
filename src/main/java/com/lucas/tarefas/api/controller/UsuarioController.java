@@ -2,6 +2,7 @@ package com.lucas.tarefas.api.controller;
 
 import com.lucas.tarefas.api.assembler.UsuarioAssembler;
 import com.lucas.tarefas.api.dto.input.UsuarioInput;
+import com.lucas.tarefas.api.dto.output.TarefaOutput;
 import com.lucas.tarefas.api.dto.output.UsuarioOutput;
 import com.lucas.tarefas.api.exception.handler.Problema;
 import com.lucas.tarefas.domain.model.Usuario;
@@ -30,15 +31,8 @@ public class UsuarioController {
 
     private final UsuarioAssembler usuarioAssembler;
 
-    @Operation(
-            responses = {
-                @ApiResponse(responseCode = "201", content = @Content(schema = @Schema(implementation =
-                        UsuarioOutput.class))),
-                @ApiResponse(responseCode = "400", content = @Content(schema = @Schema(implementation =
-                        Problema.class))),
-
-            }
-    )
+    @ApiResponse(responseCode = "201", content = @Content(schema = @Schema(implementation =
+            UsuarioOutput.class)))
     @PostMapping
     public ResponseEntity<UsuarioOutput> criar(@Valid @RequestBody UsuarioInput usuarioInput) {
         Usuario usuario = usuarioAssembler.toEntity(usuarioInput);
@@ -77,6 +71,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioOutput);
     }
 
+    @ApiResponse(responseCode = "204", content = @Content(schema = @Schema))
     @SecurityRequirement(name = "Bearer Authentication")
     @DeleteMapping("/{idUsuario}")
     public ResponseEntity<Void> excluir(@PathVariable Long idUsuario) {
