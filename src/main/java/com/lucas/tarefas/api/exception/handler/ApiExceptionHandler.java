@@ -2,6 +2,7 @@ package com.lucas.tarefas.api.exception.handler;
 
 import com.lucas.tarefas.domain.exception.RecursoJaExistenteException;
 import com.lucas.tarefas.domain.exception.RecursoNaoEncontradoException;
+import com.lucas.tarefas.domain.exception.TarefaNaoPodeSerConcluidaException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -49,6 +50,16 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(RecursoJaExistenteException.class)
     public ResponseEntity<Object> handleRecursoJaExistente(RecursoJaExistenteException ex, WebRequest request){
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        Problema problema = new Problema();
+        problema.setStatus(status.value());
+        problema.setDataHora(OffsetDateTime.now());
+        problema.setTitulo(ex.getMessage());
+        return handleExceptionInternal(ex, problema, new HttpHeaders(), status, request);
+    }
+
+    @ExceptionHandler(TarefaNaoPodeSerConcluidaException.class)
+    public ResponseEntity<Object> handleTarefaNaoPodeSerConcluida(TarefaNaoPodeSerConcluidaException ex, WebRequest request){
         HttpStatus status = HttpStatus.BAD_REQUEST;
         Problema problema = new Problema();
         problema.setStatus(status.value());

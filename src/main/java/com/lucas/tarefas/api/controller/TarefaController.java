@@ -68,4 +68,13 @@ public class TarefaController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/{idTarefa}/concluir")
+    public ResponseEntity<TarefaOutput> concluirTarefa(@PathVariable Long idTarefa) {
+        Tarefa tarefaConcluida = tarefaService.concluirTarefa(idTarefa);
+
+        TarefaOutput tarefaOutput = tarefaAssembler.toOutput(tarefaConcluida);
+
+        return ResponseEntity.ok(tarefaOutput);
+    }
+
 }

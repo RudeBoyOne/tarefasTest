@@ -2,6 +2,7 @@ package com.lucas.tarefas.domain.service;
 
 import com.lucas.tarefas.api.dto.input.TarefaInput;
 import com.lucas.tarefas.domain.exception.RecursoNaoEncontradoException;
+import com.lucas.tarefas.domain.exception.TarefaNaoPodeSerConcluidaException;
 import com.lucas.tarefas.domain.model.Status;
 import com.lucas.tarefas.domain.model.Tarefa;
 import com.lucas.tarefas.domain.repository.TarefaRepository;
@@ -60,5 +61,23 @@ public class TarefaService {
     public void excluirTarefa(Long id) {
         Tarefa tarefa = buscarTarefa(id);
         tarefaRepository.delete(tarefa);
+    }
+
+    @Transactional(
+            rollbackFor = IllegalArgumentException.class,
+            rollbackForClassName = "IllegalArgumentException")
+    public Tarefa concluirTarefa(Long id) {
+        Tarefa tarefa = buscarTarefa(id);
+
+        if (!tarefa.getStatus().equals(Status.ABERTA)) {
+            throw new TarefaNaoPodeSerConcluidaException("Tarefa de id: " + id + ", já está concluída!");
+        }
+
+        tarefa.setStatus(Status.CONCLUIDA);
+        tarefa.setDataConclusao(LocalDateTime.now());
+
+        Tarefa tarefaConcluida = tarefaRepository.save(tarefa);
+
+        return tarefaConcluida;
     }
 }
