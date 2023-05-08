@@ -20,7 +20,8 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'openjdk'
+          distribution: 'adopt'
+          architecture: x64
       - name: Set up MySQL 8
         uses: docker://mysql:8.0.26
         env:
