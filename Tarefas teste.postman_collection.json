@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "d73e30fa-4546-4804-bc6f-a3737fae72ad",
+		"name": "Tarefas teste",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20377676"
+	},
+	"item": [
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Criar - Usuários",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"jonas\",\n    \"email\": \"jonas@gmail.com\",\n    \"senha\": \"aprimorandoSempre\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/usuarios",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar - Usuários",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6Ikp1cmlzY3JldWRvIiwiaWQiOjEsImV4cCI6MTY4MzUxNDk4MX0.hVPYsAyaQgU-APHf2_sbYuQHoBYrChHY1mQ_iUIwztw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/usuarios",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar um - Usuários",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6Ikp1cmlzY3JldWRvIiwiaWQiOjEsImV4cCI6MTY4MzUxNDk4MX0.hVPYsAyaQgU-APHf2_sbYuQHoBYrChHY1mQ_iUIwztw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/usuarios/3",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir - Usuários",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6Ikp1cmlzY3JldWRvIiwiaWQiOjEsImV4cCI6MTY4MzUxNDk4MX0.hVPYsAyaQgU-APHf2_sbYuQHoBYrChHY1mQ_iUIwztw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/usuarios/4",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza - Usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6Ikp1cmlzY3JldWRvIiwiaWQiOjEsImV4cCI6MTY4MzUxNDk4MX0.hVPYsAyaQgU-APHf2_sbYuQHoBYrChHY1mQ_iUIwztw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Camila\",\n    \"email\": \"camila@gmail.com\",\n    \"senha\": \"inteligente\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/usuarios/3",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Resposta tem token de acesso\", function () {    \r",
+									"    var jsonData = pm.response.json();\r",
+									"    console.log(jsonData);\r",
+									"    pm.expect(jsonData.token).to.exist;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"senha\": \"vamosTentando13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/login",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tarefas",
+			"item": [
+				{
+					"name": "Cria - Tarefas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hc0BnbWFpbC5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6ImpvbmFzIiwiaWQiOjIsImV4cCI6MTY4MzUyMDAyNn0.LBzAx9gcSVQTZlCtlpQYC1YoyRtQjhQ8BgxtPEcV17Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Está é uma API RESTful\",\n    \"descricao\": \"para gerenciamento de tarefas, com segurança de autenticação e autorização via JWT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/tarefas",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"tarefas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza - Tarefas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hc0BnbWFpbC5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6ImpvbmFzIiwiaWQiOjIsImV4cCI6MTY4MzUyMDAyNn0.LBzAx9gcSVQTZlCtlpQYC1YoyRtQjhQ8BgxtPEcV17Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Esta API RESTful foi publicada\",\n    \"descricao\": \"Utilizando o conhecimento do desenvolvedor com linux, cloud e ambiente AWS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/tarefas/1",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"tarefas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Concluir - Tarefas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hc0BnbWFpbC5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6ImpvbmFzIiwiaWQiOjIsImV4cCI6MTY4MzUyMDAyNn0.LBzAx9gcSVQTZlCtlpQYC1YoyRtQjhQ8BgxtPEcV17Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Finalizar teste técnico com primazia\",\n    \"descricao\": \"Buscando sempre entregar o melhor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/tarefas/3/concluir",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"tarefas",
+								"3",
+								"concluir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar - Tarefas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hc0BnbWFpbC5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6ImpvbmFzIiwiaWQiOjIsImV4cCI6MTY4MzUyMDAyNn0.LBzAx9gcSVQTZlCtlpQYC1YoyRtQjhQ8BgxtPEcV17Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/tarefas",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"tarefas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar uma - Tarefas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hc0BnbWFpbC5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6ImpvbmFzIiwiaWQiOjIsImV4cCI6MTY4MzUyMDAyNn0.LBzAx9gcSVQTZlCtlpQYC1YoyRtQjhQ8BgxtPEcV17Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/tarefas/1",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"tarefas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir - Tarefas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb25hc0BnbWFpbC5jb20iLCJpc3MiOiJ0YXJlZmFzIiwibm9tZSI6ImpvbmFzIiwiaWQiOjIsImV4cCI6MTY4MzUyMDAyNn0.LBzAx9gcSVQTZlCtlpQYC1YoyRtQjhQ8BgxtPEcV17Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://tarefas.ddns.net:8080/tarefas/1",
+							"protocol": "http",
+							"host": [
+								"tarefas",
+								"ddns",
+								"net"
+							],
+							"port": "8080",
+							"path": [
+								"tarefas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
