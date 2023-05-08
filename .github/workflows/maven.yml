@@ -25,8 +25,7 @@ jobs:
       - name: Set up MySQL 8
         uses: docker://mysql:8.0.26
         env:
-          MYSQL_RANDOM_ROOT_PASSWORD: ""
-          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
           MYSQL_USER: ${{ secrets.MYSQL_USER }}
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
       - name: Build with Maven
