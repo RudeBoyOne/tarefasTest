@@ -7,10 +7,10 @@
 > A aplicação está publicada, então os testes via Sawgger e Postman irão consumir a API do deploy
 
 1. Documentação com Swagger UI
-   - [SWAGGER UI](http://tarefas.ddns.net:8080/docs/swagger-ui) 
+   - [SWAGGER UI](http://tarefas.ddns.net:8080/docs/swagger-ui){:target="_blank"}
 
 2. Postman acessando as URI's dos recursos
-   - no postman importar json com as requests [arquivo](./Tarefas teste.postman_collection.json);
+   - no postman importar json com as requests [arquivo](./Tarefas%20teste.postman_collection.json);
 
 3. Localmente
    - git clone https://github.com/RudeBoyOne/tarefasTest.git
