@@ -25,7 +25,7 @@ jobs:
       - name: Set up MySQL 8
         uses: docker://mysql:8.0.26
         env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: ${{ vars.MYSQL_ROOT_PASSWORD }}
       - name: Build with Maven
         run: mvn clean package
       - name: Deploy to Azure Web App
