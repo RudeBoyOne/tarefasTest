@@ -7,7 +7,7 @@
 > A aplicação está publicada, então os testes via Sawgger e Postman irão consumir a API do deploy
 
 1. Documentação com Swagger UI
-   - [SWAGGER UI](http://tarefas.ddns.net:8080/docs/swagger-ui){:target="_blank"}
+   - [SWAGGER UI](http://tarefas.ddns.net:8080/docs/swagger-ui)
 
 2. Postman acessando as URI's dos recursos
    - no postman importar json com as requests [arquivo](./Tarefas%20teste.postman_collection.json);
@@ -60,4 +60,4 @@ Excluir uma tarefa   | /tarefas/{idTarefa}          |  DELETE
 
 ----
 
-Desenvolvido por [Lucas Ferreira Nogueira](https://github.com/RudeBoyOne), desenvolvedor backend Java.
+Desenvolvido por [Lucas Ferreira Nogueira](https://github.com/RudeBoyOne) desenvolvedor backend Java :computer:
